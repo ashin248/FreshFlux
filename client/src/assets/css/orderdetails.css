@@ -1,0 +1,400 @@
+:root {
+  --primary-color: #1e3a8a; /* Deep blue for primary buttons */
+  --primary-hover: #1e40af; /* Slightly lighter for hover */
+  --cancel-color: #dc2626; /* Red for cancel buttons */
+  --cancel-hover: #b91c1c; /* Darker red for hover */
+  --return-color: #d97706; /* Amber for return buttons */
+  --return-hover: #b45309; /* Darker amber for hover */
+  --chat-color: #10b981; /* Green for chat buttons */
+  --chat-hover: #059669; /* Darker green for hover */
+  --text-color: #111827; /* Dark gray for text */
+  --text-secondary: #4b5563; /* Lighter gray for secondary text */
+  --background-color: #f9fafb; /* Off-white background */
+  --card-background: #ffffff; /* Pure white for cards */
+  --shadow-color: rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  --hover-shadow-color: rgba(0, 0, 0, 0.15); /* Slightly darker shadow */
+  --error-color: #dc2626; /* Red for error messages */
+  --success-color: #10b981; /* Green for success messages */
+  --border-color: #e5e7eb; /* Light gray for borders */
+  --focus-ring-color: rgba(30, 64, 175, 0.5); /* Blue focus ring */
+  --progress-completed: #10b981; /* Green for completed progress */
+}
+
+.order-details-container {
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  background: var(--background-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Ensure vertical centering */
+  align-items: center; /* Ensure horizontal centering */
+  transition: background 0.5s ease-in-out;
+}
+
+.order-details-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text-color);
+  text-align: center;
+  margin-bottom: 1.5rem;
+  animation: fadeInUp 1s ease-out;
+}
+
+.message {
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  animation: shake 0.5s ease-in-out;
+  max-width: 800px; /* Constrain width for centering */
+}
+
+.error-message {
+  color: var(--error-color);
+}
+
+.success-message {
+  color: var(--success-color);
+}
+
+.order-details-card {
+  background: var(--card-background);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px var(--shadow-color);
+  width: 100%;
+  max-width: 800px; /* Constrain card width */
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  animation: fadeInUp 1.2s ease-out 0.2s;
+  animation-fill-mode: backwards;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.order-details-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px var(--hover-shadow-color);
+}
+
+.order-details-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.product-info {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.product-image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 0.25rem;
+}
+
+.product-details {
+  flex: 1;
+  font-size: 1rem;
+  color: var(--text-color);
+}
+
+.product-details p {
+  margin-bottom: 0.5rem;
+}
+
+.order-info {
+  font-size: 1rem;
+  color: var(--text-color);
+}
+
+.order-info p {
+  margin-bottom: 0.5rem;
+}
+
+.delivery-note {
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.progress-tracker {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin: 1.5rem 0;
+}
+
+.progress-line {
+  position: absolute;
+  top: 12px;
+  left: 10%;
+  right: 10%;
+  height: 4px;
+  background: var(--border-color);
+  z-index: 1;
+}
+
+.progress-completed {
+  background: var(--progress-completed);
+}
+
+.progress-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 33.33%;
+  z-index: 2;
+}
+
+.progress-circle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--border-color);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.circle-completed {
+  background: var(--progress-completed);
+  color: #ffffff;
+}
+
+.progress-label {
+  font-size: 0.875rem;
+  color: var(--text-color);
+}
+
+.action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 0.25rem;
+  border: none;
+  cursor: pointer;
+  transition: all  aš0.3s ease;
+  box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.btn-cancel {
+  background-color: var(--cancel-color);
+  color: #ffffff;
+}
+
+.btn-cancel:hover:not(:disabled) {
+  background-color: var(--cancel-hover);
+  box-shadow: 0 4px 8px var(--hover-shadow-color);
+  transform: translateY(-2px);
+}
+
+.btn-cancel:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.5);
+}
+
+.btn-cancel:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-return {
+  background-color: var(--return-color);
+  color: #ffffff;
+}
+
+.btn-return:hover:not(:disabled) {
+  background-color: var(--return-hover);
+  box-shadow: 0 4px 8px var(--hover-shadow-color);
+  transform: translateY(-2px);
+}
+
+.btn-return:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.5);
+}
+
+.btn-return:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-chat {
+  background-color: var(--chat-color);
+  color: #ffffff;
+}
+
+.btn-chat:hover {
+  background-color: var(--chat-hover);
+  box-shadow: 0 4px 8px var(--hover-shadow-color);
+  transform: translateY(-2px);
+}
+
+.btn-chat:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.5);
+}
+
+.btn-back {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  margin-top: 1.5rem;
+}
+
+.btn-back:hover {
+  background-color: var(--primary-hover);
+  box-shadow: 0 4px 8px var(--hover-shadow-color);
+  transform: translateY(-2px);
+}
+
+.btn-back:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--focus-ring-color);
+}
+
+.btn-view-all {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  margin-top: 1rem;
+}
+
+.btn-view-all:hover {
+  background-color: var(--primary-hover);
+  box-shadow: 0 4px 8px var(--hover-shadow-color);
+  transform: translateY(-2px);
+}
+
+.btn-view-all:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--focus-ring-color);
+}
+
+.no-actions {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.no-orders {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  text-align: center;
+  animation: fadeInUp 1.2s ease-out 0.2s;
+  animation-fill-mode: backwards;
+  max-width: 800px; /* Constrain width for centering */
+}
+
+.orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 800px; /* Constrain list width for centering */
+  animation: fadeInUp 1.4s ease-out 0.4s;
+  animation-fill-mode: backwards;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+.spinner-circle {
+  stroke: var(--text-secondary);
+  opacity: 0.25;
+}
+
+.spinner-path {
+  fill: var(--primary-color);
+  opacity: 0.75;
+}
+
+.loading-text {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-10px); }
+  40%, 80% { transform: translateX(10px); }
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .order-details-container {
+    padding: 1.5rem 1rem;
+  }
+
+  .order-details-title {
+    font-size: 1.5rem;
+  }
+
+  .order-details-card {
+    padding: 1rem;
+  }
+
+  .product-info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .product-image {
+    width: 100%;
+    height: 120px;
+  }
+
+  .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+
+  .progress-line {
+    left: 15%;
+    right: 15%;
+  }
+}
